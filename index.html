@@ -23,10 +23,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BPL Live IP TV" />
+    <meta
+      property="og:description"
+      content="BPL T20 2025-26: Broadcast and Live Streaming. Bangladesh Premier League, 2025-26 live. live action from BBL 2025/26 on TV on T Sports"
+    />
     <meta
       property="og:image"
-      content="https://github.com/devsohelrana/live-tv/blob/main/featured-image.jpg"
+      content="https://i.postimg.cc/QMcGjH8k/featured-image.jpg"
     />
+
     <style>
       :root {
         --red: #ff0000;
@@ -207,6 +215,17 @@
         color: var(--red);
       }
     </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "url": "https://bpltv.com/",
+        "name": "BPL Live IP TV",
+        "description": "BPL T20 2025-26: Broadcast and Live Streaming. Bangladesh Premier League, 2025-26 live. live action from BBL 2025/26 on TV on T Sports",
+        "image": "https://i.postimg.cc/QMcGjH8k/featured-image.jpg"
+      }
+    </script>
   </head>
   <body
     oncontextmenu="return false;"
@@ -218,7 +237,7 @@
         ← BACK
       </button>
       <img
-        src="https://i.postimg.cc/43XVKcZp/bpltv.png"
+        src="https://i.postimg.cc/QMcGjH8k/featured-image.jpg"
         alt="LOGO"
         onclick="showEvents()"
       />
@@ -272,7 +291,7 @@
           {
             id: "sa20",
             n: "SA 20",
-            l: "https://images.supersport.com/media/s3soeyxd/sa20-logo-2022-1050580.jpg?width=1920&quality=90&format=webp",
+            l: "https://images.supersport.com/media/s3soeyxd/sa20-logo-2022-1050580.jpg",
           },
           {
             id: "ilt20",
@@ -328,7 +347,7 @@
           .map(
             (ev) => `
                 <div class="card" onclick="showChannels('${ev.id}')">
-                    <div class="logo-wrap"><img src="${ev.l}" onerror="this.src='https://i.postimg.cc/43XVKcZp/bpltv.png'"></div>
+                    <div class="logo-wrap"><img src="${ev.l}" onerror="this.src='https://i.postimg.cc/QMcGjH8k/featured-image.jpg'"></div>
                     <div class="card-info">${ev.n}</div>
                 </div>`
           )
@@ -346,7 +365,7 @@
           .map(
             (ch) => `
                 <div class="card" onclick="goToPlayer('${ch.s}')">
-                    <div class="logo-wrap"><img src="${ch.l}" onerror="this.src='https://i.postimg.cc/43XVKcZp/bpltv.png'"></div>
+                    <div class="logo-wrap"><img src="${ch.l}" onerror="this.src='https://i.postimg.cc/QMcGjH8k/featured-image.jpg'"></div>
                     <div class="card-info">${ch.n}</div>
                 </div>`
           )

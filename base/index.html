@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <title>SPORTS TV</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZXQ8N910Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FZXQ8N910Y');
+    </script>
+
+    <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous"></script>
+    <script>
+        window.googletag = window.googletag || {cmd: []};
+        googletag.cmd.push(function() {
+            googletag.defineSlot('/23287017347/incontent_lazy', [[160, 600]], 'div-gpt-ad-left').addService(googletag.pubads());
+            googletag.defineSlot('/23287017347/incontent_lazy', [[160, 600]], 'div-gpt-ad-right').addService(googletag.pubads());
+            googletag.defineSlot('/23287017347/incontent_lazy', [[728, 90], [300, 250]], 'div-gpt-ad-bottom').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.6/controls.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.6/shaka-player.ui.min.js"></script>
+
+    <style>
+        /* --- Global Reset & Mobile Scroll Fix --- */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            /* মোবাইলে ডানে স্ক্রল হওয়া বন্ধ করবে */
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            position: relative;
+        }
+
+        /* --- Desktop Scroll Lock --- */
+        @media (min-width: 1024px) {
+            body {
+                overflow: hidden;
+                height: 100vh;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .update-bar {
+            display: flex;
+            align-items: center;
+            height: 28px;
+            color: #fff;
+            font-weight: 800;
+            overflow: hidden;
+            font-size: 15px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .update-bar .left {
+            background: #0a7c3b;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .update-bar .right {
+            background: #d82020;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .update-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scrollText 18s linear infinite;
+        }
+
+        @keyframes scrollText {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 4px auto;
+            padding: 0 10px;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .side-ad {
+            flex: 0 0 160px;
+            display: none;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .center-content {
+            flex: 0 1 720px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #player-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: fill !important;
+        }
+
+        /* --- BOLD DOTTED FAST SPINNER (CENTERED) --- */
+        .shaka-spinner-container {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            display: none;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 100 !important;
+            pointer-events: none;
+            width: 120px !important;
+            height: 120px !important;
+            margin: 0 !important;
+        }
+
+        .shaka-spinner-svg {
+            display: none !important;
+        }
+
+        .shaka-spinner-container::after {
+            content: "";
+            width: 70px;
+            height: 70px;
+            border: 12px dotted #ff0000;
+            border-right-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-radius: 50%;
+            /* স্পিড বাড়িয়ে ১.২ সেকেন্ড (1.2s) করা হয়েছে */
+            animation: spin-dotted-fast 1.2s linear infinite !important;
+            display: block;
+        }
+
+        @keyframes spin-dotted-fast {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Custom Colors */
+        .shaka-seek-bar-active,
+        .shaka-volume-bar-active {
+            background: #ff0000 !important;
+        }
+
+        .shaka-range-element::-webkit-slider-thumb {
+            background: #ff0000 !important;
+        }
+
+        .shaka-current-time,
+        .shaka-duration {
+            color: #ff0000 !important;
+            font-weight: bold;
+        }
+
+        .shaka-play-button-container {
+            display: none !important;
+        }
+
+        #pause-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 45px;
+            height: 50px;
+            display: none;
+            z-index: 10;
+        }
+
+        .pause-bar-custom {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bar {
+            width: 14px;
+            height: 50px;
+            background: #ff0000;
+            border-radius: 4px;
+        }
+
+        .telegram {
+            background: #2f6cf6;
+            padding: 10px;
+            text-align: center;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .telegram a {
+            background: #fff;
+            color: #2f6cf6;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+        }
+
+        .ad-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            min-height: 90px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1150px) {
+            .side-ad {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 5px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .shaka-spinner-container::after {
+                width: 55px;
+                height: 55px;
+                border-width: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="update-bar">
+        <div class="left">UPDATES</div>
+        <div class="right">
+            <div class="update-text">IF VIDEO NOT PLAY REFRESH ONCE AND WAIT FOR FEW SECONDS VIDEO WILL START PLAYING
+                OTHERWISE MESSAGE IN TELEGRAM !</div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="side-ad">
+            <div id='div-gpt-ad-left'>
+                <script>
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-left'); });
+                </script>
+            </div>
+        </div>
+
+        <div class="center-content">
+            <div id="player-container" ondblclick="video.muted = false; video.volume = 0.4;">
+                <div id="pause-icon" onclick="video.play(); video.muted = false; video.volume = 0.4;">
+                    <div class="pause-bar-custom">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <video id="video" autoplay muted playsinline crossorigin="anonymous"></video>
+            </div>
+
+            <div class="telegram"><a id="tg" href="https://t.me/bpltve" target="_blank">JOIN NOW TELEGRAM</a></div>
+
+            <div class="ad-bottom">
+                <div id='div-gpt-ad-bottom'>
+                    <script>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-bottom'); });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-ad">
+            <div id='div-gpt-ad-right'>
+                <script>
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-right'); });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const container = document.getElementById('player-container');
+        const pauseIcon = document.getElementById('pause-icon');
+
+        const id = new URLSearchParams(location.search).get("id");
+        fetch("id.json").then(r => r.json()).then(async data => {
+            if (!id || !data[id]) return;
+            const ch = data[id];
+            const player = new shaka.Player(video);
+            const ui = new shaka.ui.Overlay(player, container, video);
+            ui.configure({ 'controlPanelElements': ['play_pause', 'mute', 'volume', 'time_and_duration', 'spacer', 'quality', 'picture_in_picture', 'fullscreen'] });
+
+            const spinner = document.querySelector('.shaka-spinner-container');
+            const showBuffering = () => { 
+                if(spinner) spinner.style.setProperty('display', 'flex', 'important'); 
+                pauseIcon.style.display = 'none'; 
+            };
+            const hideBuffering = () => { 
+                if(spinner) spinner.style.setProperty('display', 'none', 'important'); 
+            };
+
+            player.addEventListener('buffering', (e) => {
+                if (e.buffering) showBuffering();
+                else { hideBuffering(); if (video.paused) pauseIcon.style.display = 'block'; }
+            });
+
+            video.addEventListener('waiting', showBuffering);
+            video.addEventListener('playing', () => { hideBuffering(); pauseIcon.style.display = 'none'; });
+            video.addEventListener('pause', () => { if (!player.isBuffering()) pauseIcon.style.display = 'block'; });
+
+            if (ch.keyId && ch.keyValue) {
+                player.configure({ drm: { clearKeys: { [ch.keyId]: ch.keyValue } } });
+            }
+            try { await player.load(ch.url); } catch (e) { player.configure({ drm: null }); await player.load(ch.url); }
+        });
+    </script>
+</body>
+
+</html>
